@@ -1,11 +1,6 @@
-// ignore_for_file: deprecated_member_use
-
-// ignore: depend_on_referenced_packages
-import 'package:dio/dio.dart';
-
 abstract class DataStates<T> {
   final T? data;
-  final DioError? error;
+  final int? error;
 
   const DataStates({this.data, this.error});
 }
@@ -15,5 +10,5 @@ class DataSuccess<T> extends DataStates<T> {
 }
 
 class DataFailed<T> extends DataStates<T> {
-  const DataFailed(DioError error) : super(error: error);
+  const DataFailed(int error) : super(error: error);
 }

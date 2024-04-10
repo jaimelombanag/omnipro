@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 class ElementsEntity extends Equatable {
-  final String? albumId;
+  final int? albumId;
   final int? id;
   final String? title;
   final String? url;

@@ -1,10 +1,9 @@
 import 'package:equatable/equatable.dart';
-import 'package:dio/dio.dart';
 import 'package:test_omni/features/domain/entities/elements.dart';
 
 abstract class RemoteElementsState extends Equatable {
   final List<ElementsEntity>? elements;
-  final DioError? error;
+  final int? error;
 
   const RemoteElementsState({this.elements, this.error});
 
@@ -22,5 +21,5 @@ class RemoteElementsDone extends RemoteElementsState {
 }
 
 class RemoteElementsError extends RemoteElementsState {
-  const RemoteElementsError(DioError error) : super(error: error);
+  const RemoteElementsError(int error) : super(error: error);
 }
