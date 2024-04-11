@@ -15,10 +15,10 @@
   tuple: ^2.0.0
   cached_network_image: ^3.1.0
 
-**➢ Breve descripción de la responsabilidad de cada capa propuesta.**
+**➢ Breve descripción de la aplicación.**
 
-* Se implementa el API de MArvel
-  Para visualizar la lista de de los personajes de marvel se llama el api characyers de marvel con un limite de 100 personajes, para utilizar esta api es necesario registrarse y crear un hash para el uso publico de la api
+* Se implementa el API https://jsonplaceholder.typicode.com/photos
+  Para visualizar la lista de de las fotos se realiza el llamaso del api con un limite de 10 fotos, se implementa en la capa de presentación "RefreshIndicator" para cada vez que se refresque se llama de nuevo al api cargando de a 10 fotos, en la parte superior de la pantalla de home se puede observar que el tamaño de la lista va aumentando cada vez que se realiza el refresh.
 
 ➢ Clean Architecture
 
