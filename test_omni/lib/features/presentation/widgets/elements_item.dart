@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:test_omni/features/domain/entities/elements.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:test_omni/features/domain/entities/paging.dart';
 
 class ElementysWidget extends StatelessWidget {
-  final ElementsEntity? element;
+  final Paging? element;
 
   const ElementysWidget({
     Key? key,
@@ -33,7 +33,7 @@ class ElementysWidget extends StatelessWidget {
 
   Widget _buildImage(BuildContext context) {
     return CachedNetworkImage(
-      imageUrl: element!.url!,
+      imageUrl: element!.url,
       imageBuilder: (context, imageProvider) => Padding(
         padding: const EdgeInsetsDirectional.only(end: 14),
         child: ClipRRect(
@@ -88,7 +88,7 @@ class ElementysWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              element!.title ?? '',
+              element!.title,
               maxLines: 3,
               overflow: TextOverflow.ellipsis,
               style: const TextStyle(
@@ -99,7 +99,7 @@ class ElementysWidget extends StatelessWidget {
               ),
             ),
             Text(
-              'Id: ${element!.id!}',
+              'Id: ${element!.id}',
               style: const TextStyle(
                 fontSize: 12,
               ),
