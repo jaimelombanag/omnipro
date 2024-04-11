@@ -1,7 +1,5 @@
-import 'package:flutter/foundation.dart';
 import 'package:test_omni/features/data/models/photos_model.dart';
 import 'package:test_omni/features/data/providers/network/apis/home_api.dart';
-import 'package:test_omni/features/data/providers/network/app_exception.dart';
 import 'package:test_omni/features/domain/repositories/home_repository.dart';
 
 class HomeRepositoryIml extends HomeRepository {
@@ -16,9 +14,6 @@ class HomeRepositoryIml extends HomeRepository {
 
       return myList;
     } catch (e) {
-      debugPrint(AppException().code);
-      debugPrint(AppException().details);
-      debugPrint(AppException().message);
       return [];
     }
   }

@@ -26,15 +26,19 @@ class HomePage extends GetView<HomeController> {
           return controller.updatePage();
         },
         child: Obx(
-          () => ListView.builder(
-            physics: const AlwaysScrollableScrollPhysics(),
-            itemBuilder: (context, index) {
-              return PhotosWidget(
-                element: controller.pothos[index],
-              );
-            },
-            itemCount: controller.pothos.length,
-          ),
+          () => controller.loading.value
+              ? Center(
+                  child: CircularProgressIndicator(),
+                )
+              : ListView.builder(
+                  physics: const AlwaysScrollableScrollPhysics(),
+                  itemBuilder: (context, index) {
+                    return PhotosWidget(
+                      element: controller.pothos[index],
+                    );
+                  },
+                  itemCount: controller.pothos.length,
+                ),
         ),
       ),
     );

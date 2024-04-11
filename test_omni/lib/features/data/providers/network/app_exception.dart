@@ -1,7 +1,7 @@
 class AppException implements Exception {
-  final code;
-  final message;
-  final details;
+  final String? code;
+  final String? message;
+  final String? details;
 
   AppException({this.code, this.message, this.details});
 
@@ -13,53 +13,53 @@ class AppException implements Exception {
 class FetchDataException extends AppException {
   FetchDataException(String? details)
       : super(
-    code: "fetch-data",
-    message: "Error During Communication",
-    details: details,
-  );
+          code: "fetch-data",
+          message: "Error During Communication",
+          details: details,
+        );
 }
 
 class BadRequestException extends AppException {
   BadRequestException(String? details)
       : super(
-    code: "invalid-request",
-    message: "Invalid Request",
-    details: details,
-  );
+          code: "invalid-request",
+          message: "Invalid Request",
+          details: details,
+        );
 }
 
 class UnauthorisedException extends AppException {
   UnauthorisedException(String? details)
       : super(
-    code: "unauthorised",
-    message: "Unauthorised",
-    details: details,
-  );
+          code: "unauthorised",
+          message: "Unauthorised",
+          details: details,
+        );
 }
 
 class InvalidInputException extends AppException {
   InvalidInputException(String? details)
       : super(
-    code: "invalid-input",
-    message: "Invalid Input",
-    details: details,
-  );
+          code: "invalid-input",
+          message: "Invalid Input",
+          details: details,
+        );
 }
 
 class AuthenticationException extends AppException {
   AuthenticationException(String? details)
       : super(
-    code: "authentication-failed",
-    message: "Authentication Failed",
-    details: details,
-  );
+          code: "authentication-failed",
+          message: "Authentication Failed",
+          details: details,
+        );
 }
 
 class TimeOutException extends AppException {
   TimeOutException(String? details)
       : super(
-    code: "request-timeout",
-    message: "Request TimeOut",
-    details: details,
-  );
+          code: "request-timeout",
+          message: "Request TimeOut",
+          details: details,
+        );
 }
