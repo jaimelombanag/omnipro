@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:test_omni/features/domain/entities/elements.dart';
 import 'package:test_omni/features/presentation/bloc/elements/remote/remore_elements_state.dart';
 import 'package:test_omni/features/presentation/bloc/elements/remote/remote_elements_bloc.dart';
 import 'package:test_omni/features/presentation/widgets/elements_item.dart';
@@ -17,15 +16,6 @@ class ScreenElements extends StatelessWidget {
           'OmniPro',
           style: TextStyle(color: Colors.white),
         ),
-        actions: [
-          // GestureDetector(
-          //   onTap: () => _onShowSavedArticlesViewTapped(context),
-          //   child: const Padding(
-          //     padding: EdgeInsets.symmetric(horizontal: 14),
-          //     child: Icon(Icons.bookmark, color: Colors.black),
-          //   ),
-          // ),
-        ],
       ),
       body: _buildBody(),
     );
@@ -45,8 +35,6 @@ class ScreenElements extends StatelessWidget {
             itemBuilder: (context, index) {
               return ElementysWidget(
                 element: state.elements![index],
-                onArticlePressed: (article) =>
-                    _onArticlePressed(context, article),
               );
             },
             itemCount: state.elements!.length,
@@ -55,13 +43,5 @@ class ScreenElements extends StatelessWidget {
         return const SizedBox();
       },
     );
-  }
-
-  void _onArticlePressed(BuildContext context, ElementsEntity element) {
-    Navigator.pushNamed(context, '/ArticleDetails', arguments: element);
-  }
-
-  void _onShowSavedArticlesViewTapped(BuildContext context) {
-    Navigator.pushNamed(context, '/SavedArticles');
   }
 }

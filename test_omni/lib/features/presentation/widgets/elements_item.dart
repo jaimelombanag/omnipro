@@ -5,16 +5,10 @@ import 'package:cached_network_image/cached_network_image.dart';
 
 class ElementysWidget extends StatelessWidget {
   final ElementsEntity? element;
-  final bool? isRemovable;
-  final void Function(ElementsEntity element)? onRemove;
-  final void Function(ElementsEntity element)? onArticlePressed;
 
   const ElementysWidget({
     Key? key,
     this.element,
-    this.onArticlePressed,
-    this.isRemovable = false,
-    this.onRemove,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -26,12 +20,11 @@ class ElementysWidget extends StatelessWidget {
             start: 14, end: 14, bottom: 7, top: 7),
         height: MediaQuery.of(context).size.width / 2.2,
         child: element!.id == null
-            ? CircularProgressIndicator()
+            ? const CircularProgressIndicator()
             : Row(
                 children: [
                   _buildImage(context),
-                  _buildTitleAndDescription(),
-                  _buildRemovableArea(),
+                  _buildTitle(),
                 ],
               ),
       ),
@@ -62,10 +55,10 @@ class ElementysWidget extends StatelessWidget {
           child: Container(
             width: MediaQuery.of(context).size.width / 3,
             height: double.maxFinite,
-            child: CupertinoActivityIndicator(),
             decoration: BoxDecoration(
               color: Colors.black.withOpacity(0.08),
             ),
+            child: const CupertinoActivityIndicator(),
           ),
         ),
       ),
@@ -76,17 +69,17 @@ class ElementysWidget extends StatelessWidget {
           child: Container(
             width: MediaQuery.of(context).size.width / 3,
             height: double.maxFinite,
-            child: Icon(Icons.error),
             decoration: BoxDecoration(
               color: Colors.black.withOpacity(0.08),
             ),
+            child: const Icon(Icons.error),
           ),
         ),
       ),
     );
   }
 
-  Widget _buildTitleAndDescription() {
+  Widget _buildTitle() {
     return Expanded(
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 7),
@@ -94,7 +87,6 @@ class ElementysWidget extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Title
             Text(
               element!.title ?? '',
               maxLines: 3,
@@ -106,59 +98,21 @@ class ElementysWidget extends StatelessWidget {
                 color: Colors.black87,
               ),
             ),
-
-            // Description
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.only(top: 4),
-                child: Text(
-                  element!.albumId.toString(),
-                  maxLines: 2,
-                ),
+            Text(
+              'Id: ${element!.id!}',
+              style: const TextStyle(
+                fontSize: 12,
               ),
             ),
-
-            // Datetime
-            Row(
-              children: [
-                const Icon(Icons.timeline_outlined, size: 16),
-                const SizedBox(width: 4),
-                Text(
-                  element!.thumbnailUrl!,
-                  style: const TextStyle(
-                    fontSize: 12,
-                  ),
-                ),
-              ],
+            Text(
+              'Albun Id: ${element!.albumId}',
+              style: const TextStyle(
+                fontSize: 12,
+              ),
             ),
           ],
         ),
       ),
     );
-  }
-
-  Widget _buildRemovableArea() {
-    if (isRemovable!) {
-      return GestureDetector(
-        onTap: _onRemove,
-        child: const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 8),
-          child: Icon(Icons.remove_circle_outline, color: Colors.red),
-        ),
-      );
-    }
-    return Container();
-  }
-
-  void _onTap() {
-    if (onArticlePressed != null) {
-      onArticlePressed!(element!);
-    }
-  }
-
-  void _onRemove() {
-    if (onRemove != null) {
-      onRemove!(element!);
-    }
   }
 }

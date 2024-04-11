@@ -7,12 +7,6 @@ class AppRoutes {
       case '/':
         return _materialRoute(const ScreenElements());
 
-      case '/ArticleDetails':
-        return _materialRoute(ScreenElements());
-
-      case '/SavedArticles':
-        return _materialRoute(const ScreenElements());
-
       default:
         return _materialRoute(const ScreenElements());
     }
