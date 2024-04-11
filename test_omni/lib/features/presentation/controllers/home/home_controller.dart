@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:test_omni/features/domain/entities/paging.dart';
-import 'package:test_omni/features/domain/usecases/get_products_use_case.dart';
+import 'package:test_omni/features/domain/entities/photos.dart';
+import 'package:test_omni/features/domain/usecases/get_photos_use_case.dart';
 import 'package:tuple/tuple.dart';
 
 class HomeController extends GetxController {
   HomeController(this._getProductsUseCase);
-  final GetProductsUseCase _getProductsUseCase;
-  RxList<Paging> pothos = <Paging>[].obs;
+  final GetPhotosUseCase _getProductsUseCase;
+  RxList<Photos> pothos = <Photos>[].obs;
   var numberPage = 10.obs;
 
   @override

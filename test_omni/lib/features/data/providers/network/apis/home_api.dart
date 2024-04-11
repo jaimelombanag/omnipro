@@ -10,7 +10,7 @@ class HomeAPI implements APIRequestRepresentable {
 
   HomeAPI._({this.username, this.page, this.pageSize});
 
-  HomeAPI.getProducts(int page, int pageSize)
+  HomeAPI.getPhotos(int page, int pageSize)
       : this._(page: page, pageSize: pageSize);
 
   @override

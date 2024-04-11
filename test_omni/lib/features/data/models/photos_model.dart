@@ -1,15 +1,15 @@
 import 'dart:convert';
 
-import 'package:test_omni/features/domain/entities/paging.dart';
+import 'package:test_omni/features/domain/entities/photos.dart';
 
-class PagingModel extends Paging {
+class PhotosModel extends Photos {
   final int albumId;
   final int id;
   final String title;
   final String url;
   final String thumbnailUrl;
 
-  PagingModel({
+  PhotosModel({
     required this.albumId,
     required this.id,
     required this.title,
@@ -17,12 +17,12 @@ class PagingModel extends Paging {
     required this.thumbnailUrl,
   }) : super(albumId: 0, id: 0, title: '', url: '', thumbnailUrl: '');
 
-  factory PagingModel.fromRawJson(String str) =>
-      PagingModel.fromJson(json.decode(str));
+  factory PhotosModel.fromRawJson(String str) =>
+      PhotosModel.fromJson(json.decode(str));
 
   String toRawJson() => json.encode(toJson());
 
-  factory PagingModel.fromJson(Map<String, dynamic> json) => PagingModel(
+  factory PhotosModel.fromJson(Map<String, dynamic> json) => PhotosModel(
         albumId: json["albumId"] ?? 0,
         id: json["id"] ?? 0,
         title: json["title"] ?? '',

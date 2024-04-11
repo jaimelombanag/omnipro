@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:test_omni/features/presentation/controllers/home/home_controller.dart';
-import 'package:test_omni/features/presentation/widgets/elements_item.dart';
+import 'package:test_omni/features/presentation/widgets/photos_item.dart';
 
 class HomePage extends GetView<HomeController> {
   const HomePage({Key? key}) : super(key: key);
@@ -29,7 +29,7 @@ class HomePage extends GetView<HomeController> {
           () => ListView.builder(
             physics: const AlwaysScrollableScrollPhysics(),
             itemBuilder: (context, index) {
-              return ElementysWidget(
+              return PhotosWidget(
                 element: controller.pothos[index],
               );
             },

@@ -1,5 +1,5 @@
-import 'package:test_omni/features/data/models/paging_model.dart';
+import 'package:test_omni/features/data/models/photos_model.dart';
 
 abstract class HomeRepository {
-  Future<List<PagingModel>> getProducts(int page, int pageSize);
+  Future<List<PhotosModel>> getPhotos(int page, int pageSize);
 }

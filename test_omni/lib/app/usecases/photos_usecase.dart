@@ -1,3 +1,3 @@
-abstract class ParamUseCase<Type, Params> {
+abstract class PhotosUseCase<Type, Params> {
   Future<List<Type>> execute(Params params);
 }

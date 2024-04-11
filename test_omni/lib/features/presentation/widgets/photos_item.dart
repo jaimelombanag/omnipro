@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:test_omni/features/domain/entities/paging.dart';
+import 'package:test_omni/features/domain/entities/photos.dart';
 
-class ElementysWidget extends StatelessWidget {
-  final Paging? element;
+class PhotosWidget extends StatelessWidget {
+  final Photos? element;
 
-  const ElementysWidget({
+  const PhotosWidget({
     Key? key,
     this.element,
   }) : super(key: key);
@@ -19,7 +19,7 @@ class ElementysWidget extends StatelessWidget {
         padding: const EdgeInsetsDirectional.only(
             start: 14, end: 14, bottom: 7, top: 7),
         height: MediaQuery.of(context).size.width / 2.2,
-        child: element!.id == null
+        child: element!.id == 0
             ? const CircularProgressIndicator()
             : Row(
                 children: [

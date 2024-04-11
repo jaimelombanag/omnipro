@@ -1,5 +1,5 @@
-class Paging {
-  Paging({
+class Photos {
+  Photos({
     required this.albumId,
     required this.id,
     required this.title,
