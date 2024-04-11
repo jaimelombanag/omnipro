@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:test_omni/features/domain/entities/elements.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:test_omni/features/domain/entities/photos.dart';
 
-class ElementysWidget extends StatelessWidget {
-  final ElementsEntity? element;
+class PhotosWidget extends StatelessWidget {
+  final Photos? element;
 
-  const ElementysWidget({
+  const PhotosWidget({
     Key? key,
     this.element,
   }) : super(key: key);
@@ -19,7 +19,7 @@ class ElementysWidget extends StatelessWidget {
         padding: const EdgeInsetsDirectional.only(
             start: 14, end: 14, bottom: 7, top: 7),
         height: MediaQuery.of(context).size.width / 2.2,
-        child: element!.id == null
+        child: element!.id == 0
             ? const CircularProgressIndicator()
             : Row(
                 children: [
@@ -33,7 +33,7 @@ class ElementysWidget extends StatelessWidget {
 
   Widget _buildImage(BuildContext context) {
     return CachedNetworkImage(
-      imageUrl: element!.url!,
+      imageUrl: element!.url,
       imageBuilder: (context, imageProvider) => Padding(
         padding: const EdgeInsetsDirectional.only(end: 14),
         child: ClipRRect(
@@ -88,7 +88,7 @@ class ElementysWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              element!.title ?? '',
+              element!.title,
               maxLines: 3,
               overflow: TextOverflow.ellipsis,
               style: const TextStyle(
@@ -99,7 +99,7 @@ class ElementysWidget extends StatelessWidget {
               ),
             ),
             Text(
-              'Id: ${element!.id!}',
+              'Id: ${element!.id}',
               style: const TextStyle(
                 fontSize: 12,
               ),
