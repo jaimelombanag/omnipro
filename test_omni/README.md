@@ -1,4 +1,4 @@
-# OmniPro_flutter
+# OmniPro_flutter_test
 ##Requerimientos técnicos para construir el proyecto.**
 * Flutter 3.16.0
 * Android version mínimo: Android 5.0 - 21 LOLLIPOP - Api # 21
